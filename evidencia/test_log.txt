@@ -1,0 +1,8 @@
+[INFO] Contenido del FS:
+total 5
+drwxr-xr-x 3 deyvid deyvid   45 Nov 14 11:22 .
+drwxr-xr-x 8 deyvid deyvid 4096 Nov 14 12:06 ..
+drwxr-xr-x 2 deyvid deyvid   30 Nov 14 11:22 docs
+-rw-r--r-- 1 deyvid deyvid   29 Nov 14 11:22 leerme.txt
+[INFO] Probando escritura (debe fallar):
+[OK] No se permite escribir (read-only)

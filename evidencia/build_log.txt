@@ -1,0 +1,31 @@
+[INFO] Generando imagen SquashFS...
+Parallel mksquashfs: Using 8 processors
+Creating 4.0 filesystem on filesystem.sqsh, block size 131072.
+[===================================================================|] 2/2 100%
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 0.32 Kbytes (0.00 Mbytes)
+	77.73% of uncompressed filesystem size (0.41 Kbytes)
+Inode table size 61 bytes (0.06 Kbytes)
+	46.92% of uncompressed inode table size (130 bytes)
+Directory table size 55 bytes (0.05 Kbytes)
+	77.46% of uncompressed directory table size (71 bytes)
+Number of duplicate files found 0
+Number of inodes 4
+Number of files 2
+Number of fragments 1
+Number of symbolic links 0
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 2
+Number of hard-links 0
+Number of ids (unique uids + gids) 1
+Number of uids 1
+	deyvid (1000)
+Number of gids 1
+	deyvid (1000)
+[OK] Imagen creada: filesystem.sqsh
