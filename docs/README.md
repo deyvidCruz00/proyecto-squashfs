@@ -112,130 +112,24 @@ Compression ratio: 22.27% space savings
 Metadata overhead: 61 bytes (inode table) + 55 bytes (directory table)
 ```
 
-### Validación de Seguridad
-✅ **Inmutabilidad verificada**: Todas las operaciones de escritura fallan correctamente
-✅ **Integridad garantizada**: Checksums automáticos detectan corrupción
-✅ **Permisos preservados**: Estructura original mantenida tras montaje
-✅ **Aislamiento efectivo**: No hay acceso directo a archivos sin montaje
-
 ## Documentación Adicional
 
 Para información detallada, consulte:
 - [`ARQUITECTURA.md`](ARQUITECTURA.md) - Diseño técnico y componentes del sistema
-- [`MARCO_TEORICO.md`](MARCO_TEORICO.md) - Fundamentos teóricos y conceptos aplicados
 - [`ANALISIS_EXPERIMENTAL.md`](ANALISIS_EXPERIMENTAL.md) - Resultados y métricas experimentales
-- [`DOCUMENTO_INTEGRADOR.md`](DOCUMENTO_INTEGRADOR.md) - Síntesis teoría-práctica completa
 
-## Casos de Uso
 
-### Sistemas Embebidos
-- **Firmware inmutable**: Protección contra corrupción de software base
-- **Configuraciones críticas**: Snapshots de configuraciones conocidas buenas
-- **Distribución de actualizaciones**: Paquetes autocontenidos
 
-### Containerización
-- **Container base images**: Layers inmutables para contenedores Docker
-- **Application packaging**: Distribución de aplicaciones autocontenidas
-- **Configuration as Code**: Gestión declarativa de configuraciones
 
-### Seguridad y Compliance
-- **Forensic imaging**: Preservación de evidencia digital
-- **Backup immutable**: Snapshots protegidos contra ransomware
-- **Audit trails**: Registros inmutables para compliance
-
-## Limitaciones y Consideraciones
-
-### Limitaciones Técnicas
-- **Inmutabilidad absoluta**: No permite actualizaciones incrementales
-- **Overhead de metadatos**: Significativo para archivos muy pequeños
-- **Reconstrucción completa**: Cambios requieren recrear toda la imagen
-
-### Consideraciones de Rendimiento
-- **CPU vs Storage**: Trade-off entre compresión y velocidad de acceso
-- **Memory usage**: Page cache mejora rendimiento en accesos repetidos
-- **I/O patterns**: Optimizado para acceso secuencial, no aleatorio
-
-## Troubleshooting
-
-### Problemas Comunes
-
-#### Error: "squashfs-tools not found"
-```bash
-# Solución: Instalar dependencias
-sudo apt update
-sudo apt install -y squashfs-tools
-```
-
-#### Error: "Permission denied" durante montaje
-```bash
-# Solución: Usar sudo para operaciones de montaje
-sudo mount -t squashfs filesystem.sqsh mount_point -o loop
-```
-
-#### Error: "Directory not empty" al desmontar
-```bash
-# Solución: Cerrar todos los procesos usando el directorio
-lsof +D /path/to/mount_point
-sudo umount /path/to/mount_point
-```
-
-### Validación de Integridad
-```bash
-# Verificar integridad de la imagen
-file filesystem.sqsh
-# Debe mostrar: "Squashfs filesystem, little endian, version 4.0"
-
-# Verificar que el montaje funciona
-sudo mount -t squashfs filesystem.sqsh test_mount -o loop,ro
-ls -la test_mount/
-sudo umount test_mount
-```
-
-## Contribución y Extensiones
-
-### Mejoras Propuestas
-1. **Automatización CI/CD**: Integración con pipelines de construcción
-2. **Monitoring**: Scripts de verificación de integridad programados
-3. **Multi-algoritmo**: Soporte para múltiples algoritmos de compresión
-4. **Containerización**: Dockerfiles para entornos reproducibles
-
-### Estructura para Contribuciones
-```bash
-# Fork del repositorio
-git clone <your-fork>
-cd proyecto-squashfs
-
-# Crear branch para feature
-git checkout -b feature/nueva-funcionalidad
-
-# Implementar cambios con tests
-./scripts/test_readonly.sh
-
-# Documentar cambios
-# Crear commit con mensaje descriptivo
-git commit -m "feat: agregar soporte para compresión XZ"
-
-# Crear pull request
-```
-
-## License y Referencias
-
-### Licencia
-Este proyecto se distribuye bajo [especificar licencia], permitiendo uso académico y modificación con atribución apropiada.
 
 ### Referencias Académicas
 - Love, R. (2010). *Linux Kernel Development (3rd ed.)*. Addison-Wesley.
 - SquashFS Project: https://github.com/plougher/squashfs-tools
 - Kerrisk, M. (2010). *The Linux Programming Interface*. No Starch Press.
 
-### Contacto
-Para consultas académicas o técnicas sobre esta implementación:
-- **Repositorio**: [URL del repositorio]
-- **Documentación**: Ver directorio `docs/` para análisis detallado
-- **Issues**: Reportar problemas en el issue tracker del repositorio
 
 ---
 
-**Última actualización**: Noviembre 2024  
+**Última actualización**: Noviembre 2025
 **Versión del proyecto**: 1.0  
 **Compatibilidad**: Linux kernel >= 2.6.29 con soporte SquashFS
